@@ -1,19 +1,17 @@
-<script>
-import CustomInput from "@/components/CustomInput.vue";
+<script setup>
+import CustomInputSetup from "@/components/CustomInputSetup.vue";
+import {ref, watch} from "vue";
 
-export default {
-  components: {CustomInput},
-  data() {
-    return {
-      searchValue: '',
-    }
-  }
-}
+const searchValue = ref('');
+
+watch(searchValue, async (value, oldValue) => {
+  console.log('new value:', value, 'old value:', oldValue)
+})
 </script>
 
 <template>
   <div>12312312312</div>
-  <CustomInput v-model:modelValue="searchValue"></CustomInput>
+  <CustomInputSetup v-model:model-value="searchValue"></CustomInputSetup>
   <p>{{ searchValue }}</p>
 </template>
 
